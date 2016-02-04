@@ -1,0 +1,9 @@
+Package: CEMS
+Type: Package
+Title: CEMS Analysis Package
+Version: 0.4
+Date: 2015-07-22
+Author: JSLEE
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?

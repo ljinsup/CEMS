@@ -1,0 +1,2 @@
+exportPattern("^[[:alpha:]]+")
+import("plyr", "rmongodb", "rJava", "rjson", "RSclient")
