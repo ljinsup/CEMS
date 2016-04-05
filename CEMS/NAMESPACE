@@ -1,2 +1,2 @@
 exportPattern("^[[:alpha:]]+")
-import("plyr", "rmongodb", "rJava", "rjson", "RSclient")
+import("plyr", "rmongodb", "rJava", "rjson", "RSclient", "forecast")

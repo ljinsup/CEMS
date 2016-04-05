@@ -1,6 +1,6 @@
 cems.startRSlave <-
 function(injson, Service) {  
-    Debugging(injson, Service, text="startSlave(injson, Service_id): ")
+    # Debugging(injson, Service, text="startSlave(injson, Service_id): ")
     print("***************************************")
     print("*                                     *")
     print("*           Analysis Thread           *")

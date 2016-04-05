@@ -30,7 +30,8 @@ function (json_str) {
     log <- list()
     log$service <- service
     log$LOG <- "service"
-#     insertHistory(input$tg_id, log)
+    log$TIME <- Sys.time()
+    insertHistory(input$tg_id, log)
     
     for(servicedata in service) {
       if(!is.integer0(grep(x=nodelist[[1]], pattern="[:]"))) {
