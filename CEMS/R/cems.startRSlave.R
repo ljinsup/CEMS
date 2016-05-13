@@ -8,6 +8,8 @@ function(injson, Service) {
     print("***************************************")
     doc <- Service
     DBinfos <- Service$db_info
+    checkpkg("rjson")
+    inputMessage <<- fromJSON(injson)
     map <- data.frame()
     
     for(i in DBinfos) { 
@@ -15,11 +17,11 @@ function(injson, Service) {
                                 DB=as.character(i$db),
                                 port=Public_DB_Port)
       
-      data <- getAllData(mongo=DBconnect, collection=as.character(i$collection), sort=as.character(i$order))
+      data <- getAllData(mongo=DBconnect, collection=as.character(i$collection), sort=i$order)
       data <- subset(data, select=as.character(i$attr))
       data <- as.data.frame(data)
       
-      name <- paste(Service_id, i$collection, "data", sep=".")
+      name <- paste(Service$service_id, i$collection, "data", sep=".")
       data <- cems.restoreDataType(data)
       
       assign(name, data, envir=.GlobalEnv)
@@ -27,7 +29,7 @@ function(injson, Service) {
       destroyMongo(DBconnect)
     }
     names(map) <- c("data")
-    assign(paste(Service_id, "map", sep="."), map, envir=.GlobalEnv)
+    assign(paste(Service$service_id, "map", sep="."), map, envir=.GlobalEnv)
     
     cems.startAnalysis(injson=injson, Service=Service)
   }

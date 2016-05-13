@@ -11,6 +11,7 @@ function(x, df) {
     
     list <- list()
     
+    print(paste("Public:", publicvalue, "Predicting:", predictvalue, sep = " "))
     if(max(value, predictvalue, publicvalue) == value) {
       result <- 1
     }

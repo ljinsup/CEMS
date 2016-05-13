@@ -1,9 +1,19 @@
 cems.manageResult <-
 function(Service, value, relationvalue) {
     #   Debugging(Service_id, value, relationvalue, text="ReceiveResult(Service_id, value, relationvalue): ")
-    list <- list()
-    
+  print("****************************************")
+  print("*                                      *")
+  print("*             Result Process           *")
+  print("*                                      *")
+  print("****************************************")  
+  
+  list <- list()
+    print(paste("Result:", value, sep = " "))
     Resmnmt <- Service$resultmnmt
+    print("::::::::::Result::::::::::")
+    print(Resmnmt)
+    
+    
     if(exists("result", where=value)) {
       for(RES in Resmnmt){
         if(relationvalue == as.character(RES$relation) && is.include(value, RES$result)) {
@@ -20,17 +30,19 @@ function(Service, value, relationvalue) {
         }
       }
     }
+    print("::::::::::Processing::::::::::")
+    print(list)
     if(length(list) == 0){
-      cems.clear(Service_id)
+      cems.clear(Service$service_id)
       return
     }
+    
     for(l in list){
       if(l$type =="act") {  
+        print("****************************************")
+        print("*           Actuator Control           *")
+        print("****************************************")
         print("Action MQTT")
-        cems.publishMessage(cems.createMessage(l))
-      }
-      else if(l$type == "push") {
-        print("Push Message")
         cems.publishMessage(cems.createMessage(l))
       }
       else if(l$type == "next") {      

@@ -5,6 +5,7 @@ function(x, df) {
     MAX <- apply(df, 2, max)
     MIN <- apply(df, 2, min)
     
+    print(paste("MAX:", MAX, "MEAN:", MEAN, "MIN:", MIN, sep = " "))
     if(x > MEAN) {
       res <- list(rate=(x-MEAN)/(MAX-MEAN)*100)
     }else if(x < MEAN){

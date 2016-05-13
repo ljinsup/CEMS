@@ -1,6 +1,6 @@
 insertHistory <-
 function(type, list) {
-    mongo <- connectMongo(Addr="127.0.0.1", DB="history", port=50000)
+    mongo <- connectMongo(Addr=User_DB_Host, DB="history", port=User_DB_Port)
     list$TYPE <- type
     list$TIME <- as.character(Sys.time())
     

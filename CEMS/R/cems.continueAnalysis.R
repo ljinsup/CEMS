@@ -6,7 +6,7 @@ function(injson, Service, index) {
     
     json <- fromJSON(injson)
     
-    map <- get(paste(Service_id, "map", sep="."))
+    map <- get(paste(Service$service_id, "map", sep="."))
     
     
     for(i in Analysislist){

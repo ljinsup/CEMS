@@ -15,7 +15,6 @@ function(mongo, collection, sort=NULL){
         cursor <- mongo.find(mongo=mongo,
                              ns=paste(attr(mongo, "db"), as.character(collection), sep="."),
                              query=mongo.bson.empty(),
-                             sort=mongo.bson.empty(),
                              fields='{"_id":0}')
       }
       
